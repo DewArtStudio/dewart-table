@@ -1,6 +1,6 @@
 {
 	"name": "dewart-console-table",
-	"version": "1.0.5",
+	"version": "1.0.9",
 	"description": "Creates a table in the console",
 	"main": "./index.js",
 	"type": "module",
@@ -15,7 +15,8 @@
 		"table"
 	],
 	"files": [
-		"./index.js"
+		"./index.js",
+		"./index.d.ts"
 	],
 	"repository": {
 		"type": "git",

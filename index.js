@@ -33,23 +33,25 @@ export default class Table {
 	static showOfArray(array, headers) {
 		console.log(Table._generate(Table._arrayToClasses(array, headers)));
 	}
-	static _arrayToClasses(array, headers){
-		let rows = array.length
-		if (rows === 0) throw Error('empty array')
-		let cols = 0
-		for (let i = 0; i < rows; i++){
-			cols = (cols < array[i].length ? array[i].length : cols)
+	static _arrayToClasses(array, headers) {
+		let rows = array.length;
+		if (rows === 0) throw Error('empty array');
+		let cols = 0;
+		for (let i = 0; i < rows; i++) {
+			cols = cols < array[i].length ? array[i].length : cols;
 		}
-		let json = '{"table":['
-		for (let i = 0 ; i < rows; i++){
-			json+='{'
-			for (let j = 0; j < cols; j++){
-				json+=`\"${headers[j] !== undefined ? headers[j]: `?${j}?`}\": \"${array[i][j] !== undefined ? array[i][j] : ''}\"${(j+1<cols)?', ':''}`;
+		let json = '{"table":[';
+		for (let i = 0; i < rows; i++) {
+			json += '{';
+			for (let j = 0; j < cols; j++) {
+				json += `\"${headers[j] !== undefined ? headers[j] : `?${j}?`}\": \"${array[i][j] !== undefined ? array[i][j] : ''}\"${
+					j + 1 < cols ? ', ' : ''
+				}`;
 			}
-			json+=`}${(i+1<rows)?', ':''}`
+			json += `}${i + 1 < rows ? ', ' : ''}`;
 		}
-		json += ']}'
-		return JSON.parse(json).table
+		json += ']}';
+		return JSON.parse(json).table;
 	}
 	static _generate(data) {
 		const ts = new Transform({
