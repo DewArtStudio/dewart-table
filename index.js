@@ -166,7 +166,9 @@ export default class Table {
 
 		return result;
 	}
-
+/**
+ * ыкдпнгшрфылворапмфыволбрапифыдвлоарифы
+ */
 	static _generateTable(headers, data) {}
 	static _generatePS(headers, data) {}
 }
