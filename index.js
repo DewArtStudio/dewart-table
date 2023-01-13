@@ -1,18 +1,16 @@
 import process from 'process';
 
-const consoleWidth = process.stdout.columns
+const consoleWidth = process.stdout.columns;
 const MODE_FORMAT = {
 	EQUAL: 'equal',
 	FIXED: 'fixed',
-	AUTO: 'auto'
-}
+	AUTO: 'auto',
+};
 
-function getEqualTable(header, content, info){
+function getEqualTable(header, content, info) {}
 
-}
-
-function tableFormater(headers, data, info, mode = 'auto'){
-	switch(mode){
+function tableFormater(headers, data, info, mode = 'auto') {
+	switch (mode) {
 		case 'auto':
 			break;
 		case 'fixed':
@@ -22,60 +20,63 @@ function tableFormater(headers, data, info, mode = 'auto'){
 	}
 }
 
-function tableCore(headers, data, mode){
-	let tableInfo = getInfoTable(headers, data)
-	let columnsSize = []
-	let numberColumns = Math.max(tableInfo.headerInfo.columnsWidth.length, tableInfo.contentInfo.columnsWidth.length)
-	if (numberColumns === tableInfo.headerInfo.columnsWidth.length){
-		let rows = tableInfo.rows
-		for(let i =0; i < numberColumns; i++){
-			columnsSize.push(0)
+function tableCore(headers, data, mode) {
+	let tableInfo = getInfoTable(headers, data);
+	let columnsSize = [];
+	let numberColumns = Math.max(tableInfo.headerInfo.columnsWidth.length, tableInfo.contentInfo.columnsWidth.length);
+	if (numberColumns === tableInfo.headerInfo.columnsWidth.length) {
+		let rows = tableInfo.rows;
+		for (let i = 0; i < numberColumns; i++) {
+			columnsSize.push(0);
 		}
-		for(let i = 0; i < rows; i++){
-			columnsSize[i]
+		for (let i = 0; i < rows; i++) {
+			columnsSize[i];
 		}
 	}
-
 }
 
-function getInfoTable(headers, content){
-	let headerInfo = getInfoRow(headers)
-	let contentInfo = getInfoContent(content)
-	return{
+function getInfoTable(headers, content) {
+	let headerInfo = getInfoRow(headers);
+	let contentInfo = getInfoContent(content);
+	return {
 		width: headerInfo.width < contentInfo.width ? contentInfo.width : headerInfo.width,
 		header: headerInfo,
 		content: contentInfo,
 		allRows: [...headerInfo.columnsWidth, ...contentInfo.columnsWidth],
 		rows: headers.length + content.length,
-}
+	};
 }
 
-function getInfoContent(content){
-	let len = content.length, rows = [], maxWidth = 0, columnsWidth = []
-	for (let i = 0 ; i < len ; i++){
-		let row = getInfoRow(content[i])
+function getInfoContent(content) {
+	let len = content.length,
+		rows = [],
+		maxWidth = 0,
+		columnsWidth = [];
+	for (let i = 0; i < len; i++) {
+		let row = getInfoRow(content[i]);
 		for (let j = row.cellsData.length; j > 0; j--) {
-			if (columnsWidth[j] === undefined) columnsWidth[j] = row.cellsData[j].width
-			else if (columnsWidth[j] < row.cellsData[j].width) columnsWidth[j] = row.cellsData[j].width	
+			if (columnsWidth[j] === undefined) columnsWidth[j] = row.cellsData[j].width;
+			else if (columnsWidth[j] < row.cellsData[j].width) columnsWidth[j] = row.cellsData[j].width;
 		}
-		if (maxWidth < row.width) maxWidth = row.width
-		rows.push(row)
+		if (maxWidth < row.width) maxWidth = row.width;
+		rows.push(row);
 	}
 	return {
-		width:maxWidth,
+		width: maxWidth,
 		rowsData: rows,
 		columnsWidth: columnsWidth,
-	}
+	};
 }
 
-function getInfoRow(row){
-	let len = row.length
-	let data = []
-	let maxHeight = 0, widthRow = 0
-	for(let i = 0; i < len; i++){
-		let cell = getInfoCell(row[i])
-		data.push(cell)
-		widthRow+=cell.width
+function getInfoRow(row) {
+	let len = row.length;
+	let data = [];
+	let maxHeight = 0,
+		widthRow = 0;
+	for (let i = 0; i < len; i++) {
+		let cell = getInfoCell(row[i]);
+		data.push(cell);
+		widthRow += cell.width;
 		if (maxHeight < cell.height) maxHeight = cell.height;
 	}
 	return {
@@ -84,25 +85,27 @@ function getInfoRow(row){
 
 		numberColumns: len,
 		cellsData: data,
-	}
+	};
 }
 
-function getInfoCell(str){
-	let str = str.split('\n'), width = 0, height = str.length
-	for (let i = 0; i < height; i++) width = (max < str[i].length?str.length: max)
+function getInfoCell(str) {
+	let str = str.split('\n'),
+		width = 0,
+		height = str.length;
+	for (let i = 0; i < height; i++) width = max < str[i].length ? str.length : max;
 	return {
 		width: width,
-		height: height
-	}
+		height: height,
+	};
 }
-class Cell{
-	content
-	width
-	height
-	constructor(content, width, height){
-		this.content = content
-		this.width = width
-		this.height = height
+class Cell {
+	content;
+	width;
+	height;
+	constructor(content, width, height) {
+		this.content = content;
+		this.width = width;
+		this.height = height;
 	}
 }
 export default class Table {
@@ -159,16 +162,13 @@ export default class Table {
 		return JSON.parse(json).table;
 	}
 	static _generate(headers, data) {
-		let data = Table._getPretterData(headers, data)
-		
+		let data = Table._getPretterData(headers, data);
+
 		return result;
 	}
-	
-	static _generateTable(headers, data)
-	static _generatePS(headers, data){
 
-	}
+	static _generateTable(headers, data) {}
+	static _generatePS(headers, data) {}
 }
 
-const a = '┐ ─ ┬ ┼ ├ ┤ ┘ └ ┴'
-
+const a = '┐ ─ ┬ ┼ ├ ┤ ┘ └ ┴';
