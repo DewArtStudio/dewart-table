@@ -167,7 +167,7 @@ export default class Table {
 		return result;
 	}
 /**
- * ыкдпнгшрфылворапмфыволбрапифыдвлоарифы
+ * ыкдпнгшрфылворапмфыволбрапифыдвлоарифывфывфывфывфычвфывфывф
  */
 	static _generateTable(headers, data) {}
 	static _generatePS(headers, data) {}
