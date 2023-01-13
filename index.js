@@ -4,7 +4,7 @@ const consoleWidth = process.stdout.columns
 const MODE_FORMAT = {
 	EQUAL: 'equal',
 	FIXED: 'fixed',
-	AUTO: 'auto',
+	AUTO: 'auto'
 }
 
 function getEqualTable(header, content, info){
@@ -25,29 +25,17 @@ function tableFormater(headers, data, info, mode = 'auto'){
 function tableCore(headers, data, mode){
 	let tableInfo = getInfoTable(headers, data)
 	let columnsSize = []
-	if(tableInfo.width < consoleWidth){
-		let numberColumns = Math.max(tableInfo.headerInfo.columnsWidth.length, tableInfo.contentInfo.columnsWidth.length)
-		if (numberColumns === tableInfo.headerInfo.columnsWidth.length){
-			let rows = tableInfo.rows
-			for(let i =0; i < numberColumns; i++){
-				columnsSize.push(0)
-			}
-			for(let i = 0; i < rows; i++){
-				columnsSize[i]
-			}
+	let numberColumns = Math.max(tableInfo.headerInfo.columnsWidth.length, tableInfo.contentInfo.columnsWidth.length)
+	if (numberColumns === tableInfo.headerInfo.columnsWidth.length){
+		let rows = tableInfo.rows
+		for(let i =0; i < numberColumns; i++){
+			columnsSize.push(0)
 		}
-		else{
-			//Обработать ситуацию, когда заголовков не хватает
+		for(let i = 0; i < rows; i++){
+			columnsSize[i]
 		}
 	}
-	else{
-		if (tableInfo.header.width < consoleWidth){
-			//Сделать переносы внутри ячеек
-		}
-		else{
-			//Сделать переносы столбцов таблицы
-		}
-	}
+
 }
 
 function getInfoTable(headers, content){
@@ -59,7 +47,7 @@ function getInfoTable(headers, content){
 		content: contentInfo,
 		allRows: [...headerInfo.columnsWidth, ...contentInfo.columnsWidth],
 		rows: headers.length + content.length,
-	}
+}
 }
 
 function getInfoContent(content){
