@@ -1,12 +1,16 @@
 {
-  "name": "dewart-table",
-  "version": "1.0.0",
-  "description": "Creates a table in the console",
-  "main": "index.js",
-  "type": "module",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "DewArt studio",
-  "license": "ISC"
+	"name": "dewart-table",
+	"version": "1.0.0",
+	"description": "Creates a table in the console",
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "DewArt studio",
+	"license": "ISC",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/DewArtStudio/dewart-table.git"
+	}
 }
