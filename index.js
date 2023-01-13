@@ -33,7 +33,7 @@ function tableCore(headers, data, mode){
 				columnsSize.push(0)
 			}
 			for(let i = 0; i < rows; i++){
-				columnsSize[i].
+				columnsSize[i]
 			}
 		}
 		else{
