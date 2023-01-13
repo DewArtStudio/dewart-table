@@ -1,5 +1,4 @@
-import { Console } from 'console';
-import { Transform } from 'stream';
+import process from 'process';
 export default class Table {
 	/**
 	 * Based on data from an array of classes, returns a row containing a table
@@ -73,4 +72,14 @@ export default class Table {
 		}
 		return result;
 	}
+	static _getPretterData(headers, data){
+		const width = process.stdout.columns
+		
+	}
+	static _generatePS(headers, data){
+
+	}
 }
+
+const a = '┐ ─ ┬ ┼ ├ ┤ ┘ └ ┴'
+
