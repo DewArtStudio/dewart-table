@@ -2,7 +2,7 @@ declare module 'dewart-console-table' {
 	/**
 	 * Creates a table in the console
 	 */
-	declare class Table {
+	class Table {
 		/**
 		 * Table generation settings
 		 * @param {String} horisontalAlignment horizontal alignment [ left | center | right ]
