@@ -1,7 +1,7 @@
 {
 	"name": "dewart-console-table",
-	"version": "1.0.9",
-	"description": "Creates a table in the console",
+	"version": "1.1.0",
+	"description": "Creates adaptive console tables, with the ability to align content vertically, horizontally, as well as select the orientation of the tables display",
 	"main": "./index.js",
 	"type": "module",
 	"scripts": {
@@ -12,7 +12,15 @@
 	"email": "qpyracuk@gmail.com",
 	"keywords": [
 		"console",
-		"table"
+		"table",
+		"alignment",
+		"beautiful",
+		"pretti",
+		"dewart",
+		"orientation",
+		"adaptive",
+		"cross-platform",
+		"output"
 	],
 	"files": [
 		"./index.js"
