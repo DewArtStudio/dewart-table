@@ -8,6 +8,7 @@ function getTerminalSize() {
 	}
 	return Number.parseInt(t(), 10);
 }
+let cw = getTerminalSize();
 class BaseTable {
 	constructor(headers, content) {
 		this.dataHeader = headers;
