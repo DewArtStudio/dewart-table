@@ -1,4 +1,4 @@
-declare module 'dewart-console-table' {
+declare module 'dewart-table' {
 	/**
 	 * Creates a table in the console
 	 */

@@ -1,6 +1,6 @@
 {
-	"name": "dewart-terminal-table",
-	"version": "1.0.0",
+	"name": "dewart-table",
+	"version": "1.2.1",
 	"description": "Creates adaptive console tables, with the ability to align content vertically, horizontally, as well as select the orientation of the tables display",
 	"main": "./index.js",
 	"type": "module",
@@ -12,6 +12,7 @@
 	"email": "qpyracuk@gmail.com",
 	"keywords": [
 		"console",
+		"terminal",
 		"table",
 		"alignment",
 		"beautiful",
@@ -28,6 +29,11 @@
 	],
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/DewArtStudio/dewart-table.git"
-	}
+		"url": "git+https://github.com/DewArtStudio/dewart-table.git"
+	},
+	"types": "./index.d.ts",
+	"bugs": {
+		"url": "https://github.com/DewArtStudio/dewart-table/issues"
+	},
+	"homepage": "https://github.com/DewArtStudio/dewart-table#readme"
 }
