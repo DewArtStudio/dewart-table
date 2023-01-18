@@ -107,13 +107,14 @@ class BaseTable {
 				let start = 0,
 					current = Math.floor(data.width * data.ratio[0]),
 					next,
-					marginI = 2,
-					sum = current;
+					marginI = 2;
+				if (current > cw) current = cw-5*fm;
+				let sum = current;
 				for (let i = 0; i < this.columns; i++) {
 					next = Math.floor(data.width * data.ratio[i + 1]);
 					width[i] = current;
 					margin[i] = m;
-					if (next * 4 > cw) next = Math.floor(cw / 4);
+					if (next > cw) next = current = cw-5*fm;
 					let size = sum + marginI * fm + 1;
 					if (size > cw) {
 						slices.push([start, i]);
@@ -125,6 +126,7 @@ class BaseTable {
 					sum += current;
 					marginI++;
 				}
+				
 				slices.push([start, this.columns]);
 			} else {
 				let available = cw - this.columns * fm - 1;

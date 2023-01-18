@@ -1,6 +1,6 @@
 {
 	"name": "dewart-table",
-	"version": "1.2.1",
+	"version": "1.2.2",
 	"description": "Creates adaptive console tables, with the ability to align content vertically, horizontally, as well as select the orientation of the tables display",
 	"main": "./index.js",
 	"type": "module",
