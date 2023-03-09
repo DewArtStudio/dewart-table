@@ -1,49 +1,47 @@
-declare module 'dewart-table' {
-	/**
-	 * Creates a table in the console
-	 */
-	class Table {
-		/**
-		 * Table generation settings
-		 * @param {String} horisontalAlignment horizontal alignment [ left | center | right ]
-		 * @param {String} verticalAlignment vertical alignment [ top | center | bottom ]
-		 * @param {Boolean} margins indentation at the edges [ true - on | false - off ]
-		 * @param {Boolean} wrap automatic line break [true - on | false - off]
-		 * @param {Boolean} orientation table orientation [ true - horizontal | false - vertical ]
-		 * @copyright DewArt Studio
-		 */
-		static settings(horisontalAlignment: String, verticalAlignment: String, margins: Boolean, wrap: Boolean, orientation: Boolean): void;
-		/**
-		 * Based on data from an array of classes, returns a row containing a table
-		 * @param {Array<Object>} objects array of objects
-		 * @returns {String} Line containing the table | returns false if the input is invalid
-		 * @copyright DewArt Studio
-		 */
-		static getOfObject(objects: Array<String>): String;
-		/**
-		 * Based on the data from the class array, displays a table in the console
-		 * @param {Array<Object>} objects array of objects
-		 * @returns {Boolean} returns false if the input is invalid
-		 * @copyright DewArt Studio
-		 */
-		static showOfObject(objects: Array<String>): Boolean;
-		/**
-		 * Based on a two-dimensional array, output returns a string containing a table
-		 * @param {Array<string>} headers column headings
-		 * @param {Array<string>} content table content
-		 * @returns {String} line containing the table | returns false if the input is invalid
-		 * @copyright DewArt Studio
-		 */
-		static getOfArray(headers: Array<String>, content: Array<String>): String;
+/** 
+ * @fileOverview Creates adaprive a tables. Visit our {@link https://dewart.ru website}
+ * @author DewArt Studio
+ * @copyright DewArt Studio
+ * @version 1.3.0
+ */
+declare module "dewart-table" {
+    /**
+     * @fileoverview @author DewArt studio
+     *
+     */
 
-		/**
-		 * Based on a two-dimensional array, outputs a table to the console
-		 * @param {Array<String>} content table content
-		 * @param {Array<String>} headers column headings
-		 * @returns {Boolean} returns false if the input is invalid
-		 * @copyright DewArt Studio
-		 */
-		static showOfArray(content: Array<String>, headers: Array<String>): Boolean;
-	}
-	export default Table;
+    /**
+     * @class Creates adaprive a tables
+     */
+    class Table {
+        /**
+         * @constructor Creates a table generator
+         *
+         * Accepts table generation settings:
+         * @param {Object} settings Object of generation settings
+         * @param {String} settings.horisontalAlignment [settings.horisontalAlignment = 'left'] horizontal alignment ( left | center | right )
+         * @param {String} settings.verticalAlignment  [settings.verticalAlignment = 'top'] vertical alignment [ top | center | bottom ]
+         * @param {Boolean} settings.margin [settings.margin = true] indentation at the edges ( true - on | false - off )
+         * @param {Boolean} settings.wrap [settings.wrap = true] automatic line break ( true - on | false - off )
+         * @param {Boolean} settings.orientation [settings.orientation = 'vertical']  table orientation ( true - horizontal | false - vertical )
+         * @param {Number} settings.maxWidth [settings.maxWidth = undefined] Sets the maximum width of the table, specify undefined if you want the tables to be adaptive to the size of the console
+         */
+        constructor(settings: Object): void;
+
+        /**
+         * Generates a table from the source data
+         * @param {Array<Object> | Object} data - Object or array of objects
+         * @returns {String}
+         * @throws Internal errors in data processing
+         */
+        get(data: Array<Object> | Object): String;
+
+        /**
+         * Outputs a table from the source data to the console
+         * @param {Array<Object> | Object} data - Object or array of objects
+         * @throws Internal errors in data processing
+         */
+        log(data: Array<Object> | Object): void;
+    }
+    export default Table;
 }
